@@ -1,33 +1,17 @@
-// import React from "react";
+import React from "react";
 import { NavLink } from "react-router-dom"
-
-
-// function Navbar (){
-//     return (
-//         <div className="navbar">
-//             <NavLink  to="/" >
-//                 Home
-//             </NavLink>
-//             <NavLink to="/departments">
-//                 Departments</NavLink>
-//         </div>
-//     )
-// }
-
-// export default Navbar
-
 import { useState } from "react";
 
 export default function NavBar() {
     const [navbar, setNavbar] = useState(false);
 
     return (
-        <nav className="w-full bg-white shadow">
+        <nav className="w-full bg-white shadow" >
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <a href="javascript:void(0)">
-                            <h2 className="text-2xl font-bold">LOGO</h2>
+                            <h2 className="text-2xl font-bold">INTERNSHIP MANAGEMENT SYSTEM</h2>
                         </a>
                         <div className="md:hidden">
                             <button
@@ -75,18 +59,16 @@ export default function NavBar() {
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                             <li className="text-gray-600 hover:text-blue-600">
-                                {/* <a href="javascript:void(0)">Home</a> */}
                                 <NavLink  to="/" >Home</NavLink>
                             </li>
                             <li className="text-gray-600 hover:text-blue-600">
-                                {/* <a href="javascript:void(0)">Blog</a> */}
                                 <NavLink to="/departments">Departments</NavLink>
                             </li>
                             <li className="text-gray-600 hover:text-blue-600">
-                                <a href="javascript:void(0)">About US</a>
+                                <NavLink to="/interns">Interns</NavLink>
                             </li>
                             <li className="text-gray-600 hover:text-blue-600">
-                                <a href="javascript:void(0)">Contact US</a>
+                                <NavLink to="/supervisors">Supervisors</NavLink>
                             </li>
                         </ul>
                     </div>
@@ -95,3 +77,21 @@ export default function NavBar() {
         </nav>
     );
 }
+
+
+
+
+
+
+// function NavBar(){
+//     return (
+//         <div className="navbar">
+//             <NavLink  to="/" >Home</NavLink>
+//             <NavLink to="/departments">Departments</NavLink>
+//             <NavLink to="/interns">Interns</NavLink>
+//             <NavLink to="/supervisors">Supervisors</NavLink>
+//         </div>
+//     )
+// }
+
+// export default NavBar;

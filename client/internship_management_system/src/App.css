@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,7 +35,7 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 
 /* My Css starts Here */
@@ -68,5 +68,6 @@ body {margin:0;}
 .main {
   padding: 16px;
   margin-top: 30px;
-  /* height: 1500px; Used in this example to enable scrolling */
+  height: 1500px; 
+  /* Used in this example to enable scrolling */
 }

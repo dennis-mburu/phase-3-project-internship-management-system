@@ -3,11 +3,22 @@ import './App.css';
 import React from 'react';
 import {Route, Switch} from "react-router-dom"
 import NavBar from "./components/NavBar"
+import Departments from './components/Departments';
+import Home from "./components/Home"
 
 function App() {
   return (
     <div className="App">
       <NavBar />
+      <Switch>
+      <Route exact path ="/">
+        <Home/>
+      </Route>
+    <Route exact path ="/departments">
+      <Departments/>
+    </Route>
+
+      </Switch>
     </div>
   );
 }

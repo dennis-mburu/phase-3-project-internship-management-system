@@ -6,4 +6,10 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  get "/interns" do
+    all_interns = Intern.all
+    # all_interns.to_json(only: [:id, :name, :email], include: {department: {include: :supervisors}})
+    all_interns.to_json(only: [:id, :name, :email])
+  end
+
 end

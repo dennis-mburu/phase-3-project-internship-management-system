@@ -5,6 +5,6 @@ end
 
 
 #To remove Later. Added for quick acces while debugging with pry
-department1 = Department.first
-department1.interns
-department1.supervisors #Some supervisors are repetitive
+# department1 = Department.first
+# department1.interns
+# department1.supervisors #Some supervisors are repetitive

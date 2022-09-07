@@ -15,4 +15,53 @@ Department.create(specification: "Sales & Marketing", requirements:"3 months exp
 Department.create(specification: "Management", requirements:"BBA Degree")
 
 
+10.times do
+    Supervisor.create(
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        work_experience_in_years: rand(10..22)
+    )
+end
+
+
+
+50.times do
+    Intern.create(
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        department_id: rand(1..8),
+        supervisor_id: rand(1..7)
+    )
+end
+
+
+
+2.times do
+    Intern.create(
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        department_id: 9,
+        supervisor_id: 8
+    )
+end
+
+2.times do
+    Intern.create(
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        department_id: 10,
+        supervisor_id: 9
+    )
+end
+
+2.times do
+    Intern.create(
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        department_id: 11,
+        supervisor_id: 10
+    )
+end
+
+
 puts "✅ Done seeding!"

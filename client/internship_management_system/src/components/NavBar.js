@@ -78,20 +78,3 @@ export default function NavBar() {
     );
 }
 
-
-
-
-
-
-// function NavBar(){
-//     return (
-//         <div className="navbar">
-//             <NavLink  to="/" >Home</NavLink>
-//             <NavLink to="/departments">Departments</NavLink>
-//             <NavLink to="/interns">Interns</NavLink>
-//             <NavLink to="/supervisors">Supervisors</NavLink>
-//         </div>
-//     )
-// }
-
-// export default NavBar;

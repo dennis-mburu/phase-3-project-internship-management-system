@@ -24,9 +24,6 @@ function Interns (){
         })
       },[])
 
-
-
-
       function handleSubmit(e){
         e.preventDefault();
 
@@ -43,7 +40,10 @@ function Interns (){
             })
         })
         .then(res => res.json())
-        .then (newIntern => console.log(newIntern))
+        .then (newIntern => {
+            // setInterns([...interns, newIntern])
+            console.log(newIntern)
+        })
         setName('')
         setEmail('')
         setDepartment('1')
@@ -56,8 +56,8 @@ function Interns (){
           method: "DELETE"
         })
         .then(res => res.json())
-        .then((data) => {
-            const updatedInterns = interns.filter(intern => intern.id !== data.id )
+        .then((deletedIntern) => {
+            const updatedInterns = interns.filter(intern => intern.id !== deletedIntern.id )
             setInterns(updatedInterns)
         } )
       }
@@ -111,13 +111,16 @@ function Interns (){
                     </select>    
                 </label><br></br>
                 
-                <p><em>Intern's Supervisor will be randomly selected depending on their Availability</em><br></br></p>
+                <p><em>- Intern's Supervisor will be randomly selected depending on their Availability</em></p>
+                <p><em>- Refresh page to see details on the newly added intern</em><br></br></p>
 
-                <button type="submit">Add New Intern</button>
+                <Button variant="success" type="submit">Add new Intern</Button>
+
+                {/* <button type="submit">Add New Intern</button> */}
             </form>
 
             <div>
-                <h4>Below are the Details of all the Currently Enrolled Interns</h4>
+                <h4>Details for the Currently Enrolled Interns</h4>
             </div>
             </div>
             <div>
@@ -129,6 +132,7 @@ function Interns (){
           <th>Intern's Email</th>
           <th>Intern's Department</th>
           <th>Supervisor's name</th>
+          {/* <th>Update Details</th> */}
           <th>Delete Intern</th>
         </tr>
       </thead>
@@ -139,6 +143,7 @@ function Interns (){
                 <td>{intern.email}</td>
                 <td>{intern.department.specification}</td>
                 <td>{intern.supervisor.name}</td>
+                {/* <td><Button variant="success">Update</Button></td> */}
                 <td><Button variant="danger" onClick={()=> handleDeleteClick(intern.id)}>Delete</Button></td>
             </tr>)}
       </tbody>

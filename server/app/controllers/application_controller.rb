@@ -30,4 +30,10 @@ class ApplicationController < Sinatra::Base
     deleted.to_json
   end
 
+
+  get "/departments" do
+    all_depts = Department.all
+    all_depts.to_json(include: [supervisors: {only:[:name]}, interns: {only:[:name]}])
+  end
+
 end

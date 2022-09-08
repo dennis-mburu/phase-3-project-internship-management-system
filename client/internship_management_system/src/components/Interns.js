@@ -1,6 +1,8 @@
 import React from "react";
 import Table from 'react-bootstrap/Table';
 import { useEffect, useState } from "react";
+import Button from 'react-bootstrap/Button';
+
 
 
 function Interns (){
@@ -20,7 +22,7 @@ function Interns (){
         .then(data => {
           setInterns(data)
         })
-      },[interns])
+      },[])
 
 
 
@@ -45,6 +47,19 @@ function Interns (){
         setName('')
         setEmail('')
         setDepartment('1')
+      }
+
+      function handleDeleteClick(id){
+
+        fetch(`http://localhost:9292/interns/${id}`, {
+  
+          method: "DELETE"
+        })
+        .then(res => res.json())
+        .then((data) => {
+            const updatedInterns = interns.filter(intern => intern.id !== data.id )
+            setInterns(updatedInterns)
+        } )
       }
   
 
@@ -114,6 +129,7 @@ function Interns (){
           <th>Intern's Email</th>
           <th>Intern's Department</th>
           <th>Supervisor's name</th>
+          <th>Delete Intern</th>
         </tr>
       </thead>
       <tbody>
@@ -123,6 +139,7 @@ function Interns (){
                 <td>{intern.email}</td>
                 <td>{intern.department.specification}</td>
                 <td>{intern.supervisor.name}</td>
+                <td><Button variant="danger" onClick={()=> handleDeleteClick(intern.id)}>Delete</Button></td>
             </tr>)}
       </tbody>
     </Table>

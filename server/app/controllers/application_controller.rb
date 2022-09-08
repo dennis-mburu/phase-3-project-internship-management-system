@@ -24,4 +24,10 @@ class ApplicationController < Sinatra::Base
     new_intern.to_json
   end
 
+  delete "/interns/:id" do
+    deleted = Intern.find(params[:id])
+    deleted.destroy
+    deleted.to_json
+  end
+
 end

@@ -6,6 +6,7 @@ import Departments from './components/Departments';
 import Home from "./components/Home"
 import Interns from './components/Interns';
 import Supervisors from './components/Supervisors';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

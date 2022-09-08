@@ -8,6 +8,8 @@ import DepartmentList from "./DepartmentList";
 function Departments(){
 
     const[departments, setDepartments] = useState([])
+    const match = useRouteMatch();
+    console.log(match);
 
     useEffect(() => {
     
@@ -23,6 +25,9 @@ function Departments(){
     return(
         <div>
             <DepartmentList departments={departments} />
+            <Route path={`${match.url}/:departmentId`}>
+                <DepartmentDetails departments={departments}/>
+            </Route>
         </div>
     )
 }

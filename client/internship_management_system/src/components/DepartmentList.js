@@ -28,9 +28,10 @@ function DepartmentList({departments}){
     </Table>
             
         </div>
-
     )
 
+
+    
     // return (
     //     <div>
     //         <ol>{departments.map(department => <li key={department.id}>

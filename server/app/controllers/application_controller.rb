@@ -33,7 +33,7 @@ class ApplicationController < Sinatra::Base
 
   get "/departments" do
     all_depts = Department.all
-    all_depts.to_json(include: [supervisors: {only:[:name]}, interns: {only:[:name]}])
+    all_depts.to_json(include: [supervisors: {only:[:name, :email]}, interns: {only:[:name, :email]}])
   end
 
 end

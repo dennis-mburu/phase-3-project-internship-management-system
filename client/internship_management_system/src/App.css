@@ -48,3 +48,8 @@ button:hover{
   color: blueviolet;
   text-decoration: underline;
 }
+
+#home {
+  background-image: url(../public/12067352_4884841.jpg);
+  
+}

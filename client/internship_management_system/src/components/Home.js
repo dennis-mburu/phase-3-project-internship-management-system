@@ -4,8 +4,8 @@ import React from "react";
 function Home (){
 
     return (
-        <div>
-            This is the Homepage
+        <div id="home">
+            <h1>home</h1>
         </div>
     )
 }

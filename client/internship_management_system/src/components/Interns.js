@@ -120,7 +120,7 @@ function Interns (){
             </form>
 
             <div>
-                <h4>Details for the Currently Enrolled Interns</h4>
+                <h4>Details for All the Currently Enrolled Interns</h4>
             </div>
             </div>
             <div>

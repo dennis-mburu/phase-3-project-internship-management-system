@@ -10,7 +10,7 @@ function Interns (){
 
     const[name, setName] = useState("")
     const[email, setEmail] = useState("")
-    const[department, setDepartment] = useState("cyber-security")
+    const[department, setDepartment] = useState("1")
 
     useEffect(() => {
     
@@ -20,13 +20,31 @@ function Interns (){
         .then(data => {
           setInterns(data)
         })
-      },[])
+      },[interns])
 
 
 
 
       function handleSubmit(e){
         e.preventDefault();
+
+        fetch("http://localhost:9292/interns", {
+
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                department: parseInt(department),
+            })
+        })
+        .then(res => res.json())
+        .then (newIntern => console.log(newIntern))
+        setName('')
+        setEmail('')
+        setDepartment('1')
       }
   
 
@@ -66,14 +84,14 @@ function Interns (){
                         value={department}
                         onChange={(e)=> setDepartment(e.target.value)}
                     >
-                        <option value="cyber-security">cyber-security</option>
-                        <option value="Networking">Networking</option>    
-                        <option value="cloud-computing">cloud-computing</option>    
-                        <option value="Web development">Web development</option>
-                        <option value="Front End Designer">Front End Designer</option>
-                        <option value="Mobile App Development">Mobile App Development</option>
-                        <option value="Data Science">Data Science</option>
-                        <option value="Artificial Intelligence">Artificial Intelligence</option>
+                        <option value="1">cyber-security</option>
+                        <option value="2">Networking</option>    
+                        <option value="3">cloud-computing</option>    
+                        <option value="4">Web development</option>
+                        <option value="5">Front End Designer</option>
+                        <option value="6">Mobile App Development</option>
+                        <option value="7">Data Science</option>
+                        <option value="8">Artificial Intelligence</option>
 
                     </select>    
                 </label><br></br>

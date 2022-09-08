@@ -35,3 +35,6 @@ export default NavBar;
   background: #ddd;
   color: black;
 }
+
+
+body {margin:0;}

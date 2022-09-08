@@ -31,6 +31,7 @@ function Interns (){
           <th>id</th>
           <th>Intern's Name</th>
           <th>Intern's Email</th>
+          <th>Intern's Department</th>
         </tr>
       </thead>
       <tbody>
@@ -38,6 +39,7 @@ function Interns (){
                 <td>{intern.id}</td>
                 <td>{intern.name}</td>
                 <td>{intern.email}</td>
+                <td>{intern.department.specification}</td>
             </tr>)}
       </tbody>
     </Table>

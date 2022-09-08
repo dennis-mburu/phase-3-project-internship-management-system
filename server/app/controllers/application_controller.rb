@@ -8,8 +8,8 @@ class ApplicationController < Sinatra::Base
 
   get "/interns" do
     all_interns = Intern.all
-    # all_interns.to_json(only: [:id, :name, :email], include: {department: {include: :supervisors}})
-    all_interns.to_json(only: [:id, :name, :email])
+    all_interns.to_json(only: [:id, :name, :email], include: :department)
+    # all_interns.to_json(only: [:id, :name, :email])
   end
 
 end

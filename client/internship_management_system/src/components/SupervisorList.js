@@ -1,0 +1,35 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import Table from 'react-bootstrap/Table';
+
+
+
+function SupervisorList({supervisors}){
+
+
+    return(
+        <div>
+    <Table striped bordered hover size="sm">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Supervisor Name</th>
+          <th>Supervisor Email</th>
+          <th>Exp in Years</th>
+        </tr>
+      </thead>
+      <tbody>{supervisors.map(supervisor => 
+        <tr key={supervisor.id}>
+          <td><Link to={`/supervisors/${supervisor.id}`}>{supervisor.id}</Link></td>
+          <td><Link to={`/supervisors/${supervisor.id}`}>{supervisor.name}</Link></td>
+          <td><Link to={`/supervisors/${supervisor.id}`}>{supervisor.email}</Link></td>
+          <td><Link to={`/supervisors/${supervisor.id}`}>{supervisor.work_experience_in_years}</Link></td>
+        </tr>)}
+
+      </tbody>
+    </Table>
+            
+        </div>
+    )}
+
+    export default SupervisorList

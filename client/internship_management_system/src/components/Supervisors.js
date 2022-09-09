@@ -1,73 +1,43 @@
 import React from "react";
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { useEffect, useState } from "react";
+import { Route, useRouteMatch } from "react-router-dom";
+import SupervisorList from "./SupervisorList";
+import SupervisorDetails from "./SupervisorDetails";
+
 
 
 function Supervisors (){
 
-    return (
-        <div>
+  const[supervisors, setSupervisors] = useState([])
+  const match = useRouteMatch();
 
-            <div>Supervisors details will come here</div>
+  useEffect(() => {
+    
+    fetch("http://localhost:9292/supervisors")
 
-            <div>
-            <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+    .then(res => res.json())
+    .then(data => {
+      setSupervisors(data)
+    })
+  },[])
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-            </div>
+  // console.log(supervisors)
+  
 
-            <div>
-            <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </Table>
-   
-            </div>
-        </div>
-    )
+  return (
+    <div>
+      <SupervisorList supervisors={supervisors} />
+      <Route path={`${match.url}/:supervisorId`}>
+          <SupervisorDetails supervisors={supervisors}/>
+      </Route>
+    </div>
+  )
+
 }
 
+
 export default Supervisors;
+
+
+
+

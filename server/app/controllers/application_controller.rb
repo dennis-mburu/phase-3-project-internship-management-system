@@ -36,4 +36,10 @@ class ApplicationController < Sinatra::Base
     all_depts.to_json(include: [supervisors: {only:[:name, :email]}, interns: {only:[:name, :email]}])
   end
 
+  get "/supervisors" do
+    all_sups = Supervisor.all
+    all_sups.to_json(include: [interns: {only:[:name, :email]}, departments: {only:[:specification]}])
+  end
+  
+
 end

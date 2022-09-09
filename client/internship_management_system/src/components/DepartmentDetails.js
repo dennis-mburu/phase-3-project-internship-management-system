@@ -10,7 +10,7 @@ function DepartmentDetails({departments}){
     console.log(params)
     return(
         <div>
-            <h4>{departments[params.departmentId -1].specification} Department</h4>
+            <h4>{departments[params.departmentId -1].specification} Department Supervisors</h4>
             <div className="customTable">
             <Table striped bordered hover size="sm">
       <thead>
@@ -28,6 +28,9 @@ function DepartmentDetails({departments}){
       </tbody>
       
     </Table>
+
+    <h4>{departments[params.departmentId -1].specification} Department Interns</h4>
+
 
     <Table striped bordered hover size="sm">
       <thead>

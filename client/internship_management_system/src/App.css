@@ -1,6 +1,7 @@
 .main {
   padding: 16px;
   margin-top: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
@@ -17,8 +18,6 @@ input {
   border-bottom: 2px solid var(--background-light);
   border-top: 2px solid var(--background-light);
   padding: 1rem 0;
-  justify-content: space-between;
-  align-items: flex-end;
   gap: 1rem;
 }
 
@@ -43,13 +42,8 @@ button:hover{
   transition: all 0.3s 0s ease-in-out;
 }
 
- h4{
+h4{
   text-align: center;
   color: blueviolet;
   text-decoration: underline;
-}
-
-#home {
-  background-image: url(../public/12067352_4884841.jpg);
-  
 }

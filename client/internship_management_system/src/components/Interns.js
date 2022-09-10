@@ -64,7 +64,7 @@ function Interns (){
   
 
     return (
-        <div>
+        <div id="interns">
             <div>
                 <h4>Intern Enrollment Form</h4>
             </div>

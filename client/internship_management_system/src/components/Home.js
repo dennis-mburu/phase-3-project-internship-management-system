@@ -20,6 +20,7 @@ function Home (){
               <div class="hero-image">
                 <div class="hero-text">
                   <h1 style={{fontSize:"50px"}}>Nurturing Information Technology talent beyond boundaries</h1>
+                  <h4>Use the Navigation bar above to explore Site</h4>
                 </div>
               </div>
           </div>

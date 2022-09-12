@@ -27,8 +27,8 @@ export default function InternEditForm () {
 
     useEffect(() => {
     
-        fetch(`http://localhost:9292/interns/${id}`)
-        // fetch("https://powerful-headland-71485.herokuapp.com/interns")
+        // fetch(`http://localhost:9292/interns/${id}`)
+        fetch(`https://powerful-headland-71485.herokuapp.com/interns/${id}`)
     
         .then(res => res.json())
         .then(data => {
@@ -39,8 +39,8 @@ export default function InternEditForm () {
       function handleSubmit(e){
         e.preventDefault();
 
-        fetch(`http://localhost:9292/interns/${id}`, {
-        // fetch(`https://powerful-headland-71485.herokuapp.com/interns${id}`, {
+        // fetch(`http://localhost:9292/interns/${id}`, {
+        fetch(`https://powerful-headland-71485.herokuapp.com/interns/${id}`, {
 
             method: "PATCH",
             headers: {

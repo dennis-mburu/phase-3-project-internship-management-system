@@ -34,7 +34,7 @@ First, you have to run **bundle exec rake db:migrate** which will create your da
 
 Last but not least, run **bundle exec rake server** to get your server running and host your database locally. After starting the server, you will however need to refresh your react frontend application in the browser, so that a connection can be established. 
 
-You can now add new tasks, mark them as done, delete and fetch your new tasks once you add them to your database.
+You can now view all your interns, edit their details, add new interns and even delete them. Aditionally, you can also view the company's details according to departments or supervisors.
 
 
 ## Project Live Link.

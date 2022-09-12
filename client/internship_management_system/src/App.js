@@ -7,6 +7,7 @@ import Home from "./components/Home"
 import Interns from './components/Interns';
 import Supervisors from './components/Supervisors';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import InternEditForm from './components/InternEditForm';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route  path ="/supervisors">
           <Supervisors/>
+        </Route>
+        <Route path ="/interns/:id">
+          <InternEditForm/>
         </Route>
 
       </Switch>

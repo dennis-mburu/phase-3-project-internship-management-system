@@ -41,5 +41,20 @@ class ApplicationController < Sinatra::Base
     all_sups.to_json(include: [interns: {only:[:name, :email]}, departments: {only:[:specification]}])
   end
   
+  get "/interns/:id" do 
+    intern = Intern.find(params[:id])
+    intern.to_json
+  end
+
+  patch "/interns/:id" do 
+    edit = Intern.find(params[:id])
+    edit.update(
+      name: params[:name],
+      email: params[:email],
+      department_id: params[:department],
+      supervisor_id: rand(1..7)
+    )
+    edit.to_json
+  end
 
 end

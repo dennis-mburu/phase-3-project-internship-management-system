@@ -1,43 +1,48 @@
 import React from "react";
-import Table from 'react-bootstrap/Table';
 import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
-import { useHistory } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import Table from 'react-bootstrap/Table';
 
 
 
 
 
-function Interns (){
-    
-    const[interns, setInterns] = useState([])
+
+
+
+
+export default function InternEditForm () {
+
+
+    const params = useParams();
+    const{id} = params
+    // console.log(id)
+    const[intern, setIntern] = useState([])
 
 
     const[name, setName] = useState("")
     const[email, setEmail] = useState("")
     const[department, setDepartment] = useState("1")
 
-    const history = useHistory();
-
-
     useEffect(() => {
     
-        // fetch("http://localhost:9292/interns")
-        fetch("https://powerful-headland-71485.herokuapp.com/interns")
+        fetch(`http://localhost:9292/interns/${id}`)
+        // fetch("https://powerful-headland-71485.herokuapp.com/interns")
     
         .then(res => res.json())
         .then(data => {
-          setInterns(data)
+          setIntern(data)
         })
       },[])
 
       function handleSubmit(e){
         e.preventDefault();
 
-        // fetch("http://localhost:9292/interns", {
-        fetch("https://powerful-headland-71485.herokuapp.com/interns", {
+        fetch(`http://localhost:9292/interns/${id}`, {
+        // fetch(`https://powerful-headland-71485.herokuapp.com/interns${id}`, {
 
-            method: "POST",
+            method: "PATCH",
             headers: {
                 "Content-Type":"application/json"
             },
@@ -57,27 +62,35 @@ function Interns (){
         setDepartment('1')
       }
 
-      function handleDeleteClick(id){
+      const int_name = intern.name
+      const int_email = intern.email
+      const int_id = intern.id
 
-        // fetch(`http://localhost:9292/interns/${id}`, {
-        fetch(`https://powerful-headland-71485.herokuapp.com/interns/${id}`, {
-  
-          method: "DELETE"
-        })
-        .then(res => res.json())
-        .then((deletedIntern) => {
-            const updatedInterns = interns.filter(intern => intern.id !== deletedIntern.id )
-            setInterns(updatedInterns)
-        } )
-      }
-  
+
+      console.log(int_email, int_name)
 
     return (
-        <div id="interns">
-            <div>
-                <h4>Intern Enrollment Form</h4>
-            </div>
-            <div>
+        
+        <div>
+
+            <Table striped bordered hover size="sm">
+            <thead>
+                <tr>
+                <th>id</th>
+                <th>Intern's Name</th>
+                <th>Intern's Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                        <td>{int_id}</td>
+                        <td>{int_name}</td>
+                        <td>{int_email}</td>
+                    </tr>
+            </tbody>
+            </Table>
+
+
             <form className="form" onSubmit={handleSubmit}>
                 <label>
                     New Intern's Name:
@@ -127,40 +140,6 @@ function Interns (){
 
                 {/* <button type="submit">Add New Intern</button> */}
             </form>
-
-            <div>
-                <h4>Details for All the Currently Enrolled Interns</h4>
-            </div>
-            </div>
-            <div>
-            <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>Intern's Name</th>
-          <th>Intern's Email</th>
-          <th>Intern's Department</th>
-          <th>Supervisor's name</th>
-          <th>Update Details</th>
-          <th>Delete Intern</th>
-        </tr>
-      </thead>
-      <tbody>
-        {interns.map(intern => <tr key={intern.id}>
-                <td>{intern.id}</td>
-                <td>{intern.name}</td>
-                <td>{intern.email}</td>
-                <td>{intern.department.specification}</td>
-                <td>{intern.supervisor.name}</td>
-                <td><Button variant="success" onClick={() => history.push(`/interns/${intern.id}`)}>Update</Button></td>
-                <td><Button variant="danger" onClick={()=> handleDeleteClick(intern.id)}>Delete</Button></td>
-            </tr>)}
-      </tbody>
-    </Table>
-
-            </div>
         </div>
     )
 }
-
-export default Interns;

@@ -38,7 +38,7 @@ gem 'uri'
 #use pry in the development phase only
 group :development do
   gem "pry"
-  gem "sqlite3"
+  # gem "sqlite3"
 
   # Automatically reload when there are changes
   # https://github.com/alexch/rerun

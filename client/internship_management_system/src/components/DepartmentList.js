@@ -9,6 +9,7 @@ function DepartmentList({departments}){
 
     return(
         <div>
+          <h4>Click on a Department to View More Information</h4>
     <Table striped bordered hover size="sm">
       <thead>
         <tr>

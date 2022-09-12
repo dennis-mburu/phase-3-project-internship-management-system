@@ -91,9 +91,10 @@ export default function InternEditForm () {
             </Table>
 
 
+            <h4>Intern Edit Form</h4>
             <form className="form" onSubmit={handleSubmit}>
                 <label>
-                    New Intern's Name:
+                    Edit Intern's Name:
                     <input 
                         type="text"
                         name="name"
@@ -104,7 +105,7 @@ export default function InternEditForm () {
                 </label><br></br>
 
                 <label>
-                    New Intern's Email:
+                    Edit Intern's Email:
                     <input 
                         type="text"
                         name="email"
@@ -134,9 +135,8 @@ export default function InternEditForm () {
                 </label><br></br>
                 
                 <p><em>- Intern's Supervisor will be randomly selected depending on their Availability</em></p>
-                <p><em>- Refresh page to see details on the newly added intern</em><br></br></p>
 
-                <Button variant="success" type="submit">Add new Intern</Button>
+                <Button variant="success" type="submit">Edit Intern</Button>
 
                 {/* <button type="submit">Add New Intern</button> */}
             </form>

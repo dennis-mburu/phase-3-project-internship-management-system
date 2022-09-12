@@ -9,6 +9,7 @@ function SupervisorList({supervisors}){
 
     return(
         <div>
+          <h4>Click on a supervisor to view More Information</h4>
     <Table striped bordered hover size="sm">
       <thead>
         <tr>

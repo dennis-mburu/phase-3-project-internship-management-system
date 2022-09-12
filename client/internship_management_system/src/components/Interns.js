@@ -16,7 +16,8 @@ function Interns (){
 
     useEffect(() => {
     
-        fetch("http://localhost:9292/interns")
+        // fetch("http://localhost:9292/interns")
+        fetch("https://powerful-headland-71485.herokuapp.com/interns")
     
         .then(res => res.json())
         .then(data => {
@@ -27,7 +28,8 @@ function Interns (){
       function handleSubmit(e){
         e.preventDefault();
 
-        fetch("http://localhost:9292/interns", {
+        // fetch("http://localhost:9292/interns", {
+        fetch("https://powerful-headland-71485.herokuapp.com/interns", {
 
             method: "POST",
             headers: {
@@ -51,7 +53,8 @@ function Interns (){
 
       function handleDeleteClick(id){
 
-        fetch(`http://localhost:9292/interns/${id}`, {
+        // fetch(`http://localhost:9292/interns/${id}`, {
+        fetch(`https://powerful-headland-71485.herokuapp.com/interns/${id}`, {
   
           method: "DELETE"
         })

@@ -13,7 +13,9 @@ function Departments(){
 
     useEffect(() => {
     
-        fetch("http://localhost:9292/departments")
+        // fetch("http://localhost:9292/departments")
+        fetch("https://powerful-headland-71485.herokuapp.com/departments")
+
     
         .then(res => res.json())
         .then(data => {

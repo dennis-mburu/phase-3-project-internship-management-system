@@ -31,20 +31,6 @@ function DepartmentList({departments}){
     )
 
 
-    
-    // return (
-    //     <div>
-    //         <ol>{departments.map(department => <li key={department.id}>
-    //             <Link to={`/departments/${department.id}`}>{department.specification}</Link>
-    //             <Link to={`/departments/${department.id}`}>{department.specification}</Link>
-
-    //             <span>{department.requirements}</span>
-    //         </li>)}
-
-    //         </ol>
-    //     </div>
-    // )
-
 }
 
 export default DepartmentList

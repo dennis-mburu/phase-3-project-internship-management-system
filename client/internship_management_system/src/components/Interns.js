@@ -159,7 +159,7 @@ function Interns (){
                 <td><Button variant="success" onClick={() => history.push(`/interns/${intern.id}`)}>Update</Button></td>
 
                 {/* Insteed of useHistory, you can also use the Link tag from react router dom or the normal a tag and they'll also work 
-                but will have the default link styles(blue & underlined), so better change those styles if u choose use them*/}
+                but the text will have the default link styles(blue & underlined), so better change those styles if u choose use them*/}
 
                 {/* <td><Button variant="success" ><Link to={`/interns/${intern.id}`}>update</Link></Button></td> */}
                 {/* <td><Button variant="success" ><a href={`/interns/${intern.id}`}>update</a></Button></td> */}

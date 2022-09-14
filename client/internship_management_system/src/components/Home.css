@@ -15,6 +15,7 @@
 .column {
   float: left;
   padding: 10px;
+  padding-bottom: 0;
 }
 
 /* .column.side {
@@ -44,7 +45,7 @@
   padding: 10px;
   text-align: center;
   color: white;
-  
+  margin-top: 0;
 }
 
 .hero-image {
@@ -53,6 +54,7 @@
   /* height: 500px; */
   height: 100vh;
   position: relative;
+  margin-bottom: 0;
 }
 
 .hero-text {

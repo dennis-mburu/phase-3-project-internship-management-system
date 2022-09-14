@@ -1,9 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom"
 import { useState } from "react";
+import { useHistory } from 'react-router-dom';
+
 
 export default function NavBar() {
     const [navbar, setNavbar] = useState(false);
+    const history = useHistory();
+
 
     return (
         <nav className="w-full bg-white shadow" >
@@ -11,7 +15,7 @@ export default function NavBar() {
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <a href="javascript:void(0)">
-                            <h2 className="text-2xl font-bold">CYBER SNOOPZ INC. INTERNS MANAGEMENT SYSTEM</h2>
+                            <h2 className="text-2xl font-bold" onClick={() => history.push('/')}>CYBER SNOOPZ INC. INTERNS MANAGEMENT SYSTEM</h2>
                         </a>
                         <div className="md:hidden">
                             <button

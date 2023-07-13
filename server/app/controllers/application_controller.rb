@@ -19,9 +19,10 @@ class ApplicationController < Sinatra::Base
       name: params[:name],
       email: params[:email],
       department_id: params[:department],
-      supervisor_id: rand(1..7)
+      # supervisor_id: rand(1..7)
+      supervisor_id: params[:supervisor]
     )
-    new_intern.to_json
+    new_intern.to_json(only: [:id, :name, :email], include: [department: {only: [:specification]}, supervisor: {only: [:name]}])
   end
 
   delete "/interns/:id" do

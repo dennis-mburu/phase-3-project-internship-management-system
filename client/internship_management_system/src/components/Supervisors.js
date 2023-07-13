@@ -13,8 +13,8 @@ function Supervisors (){
 
   useEffect(() => {
     
-    // fetch("http://localhost:9292/supervisors")
-    fetch("https://powerful-headland-71485.herokuapp.com/supervisors")
+    fetch("http://localhost:9292/supervisors")
+    // fetch("https://powerful-headland-71485.herokuapp.com/supervisors")
 
     .then(res => res.json())
     .then(data => {

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import { useParams } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
@@ -19,6 +20,7 @@ export default function InternEditForm () {
     const{id} = params
     // console.log(id)
     const[intern, setIntern] = useState([])
+    const history = useHistory()
 
 
     const[name, setName] = useState("")
@@ -27,8 +29,8 @@ export default function InternEditForm () {
 
     useEffect(() => {
     
-        // fetch(`http://localhost:9292/interns/${id}`)
-        fetch(`https://powerful-headland-71485.herokuapp.com/interns/${id}`)
+        fetch(`http://localhost:9292/interns/${id}`)
+        // fetch(`https://powerful-headland-71485.herokuapp.com/interns/${id}`)
     
         .then(res => res.json())
         .then(data => {
@@ -39,8 +41,8 @@ export default function InternEditForm () {
       function handleSubmit(e){
         e.preventDefault();
 
-        // fetch(`http://localhost:9292/interns/${id}`, {
-        fetch(`https://powerful-headland-71485.herokuapp.com/interns/${id}`, {
+        fetch(`http://localhost:9292/interns/${id}`, {
+        // fetch(`https://powerful-headland-71485.herokuapp.com/interns/${id}`, {
 
             method: "PATCH",
             headers: {
@@ -56,6 +58,7 @@ export default function InternEditForm () {
         .then (newIntern => {
             // setInterns([...interns, newIntern])
             console.log(newIntern)
+            history.push('/interns')
         })
         setName('')
         setEmail('')

@@ -13,8 +13,8 @@ function Departments(){
 
     useEffect(() => {
     
-        // fetch("http://localhost:9292/departments")
-        fetch("https://powerful-headland-71485.herokuapp.com/departments")
+        fetch("http://localhost:9292/departments")
+        // fetch("https://powerful-headland-71485.herokuapp.com/departments")
 
     
         .then(res => res.json())
@@ -27,7 +27,9 @@ function Departments(){
     return(
         <div>
             <DepartmentList departments={departments} />
-            <Route path={`${match.url}/:departmentId`}>
+            {/* <Route path={`${match.url}/:departmentId`}> */}
+            <Route path='/departments/:departmentId'>
+
                 <DepartmentDetails departments={departments}/>
             </Route>
         </div>

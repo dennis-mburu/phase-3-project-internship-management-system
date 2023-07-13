@@ -7,7 +7,8 @@ import DepartmentList from "./DepartmentList";
 
 function Departments(){
 
-    const[departments, setDepartments] = useState([])
+    const[departments, setDepartments] = useState([]);
+    const [showDetails, setShowDetails] = useState(false)
     const match = useRouteMatch();
     console.log(match);
 
@@ -26,11 +27,12 @@ function Departments(){
 
     return(
         <div>
-            <DepartmentList departments={departments} />
+            <DepartmentList departments={departments} showDetails={showDetails} setShowDetails={setShowDetails} />
             {/* <Route path={`${match.url}/:departmentId`}> */}
             <Route path='/departments/:departmentId'>
+                {showDetails ? <DepartmentDetails departments={departments}/> : null}
 
-                <DepartmentDetails departments={departments}/>
+                {/* <DepartmentDetails departments={departments}/> */}
             </Route>
         </div>
     )

@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
+import { useParams } from "react-router-dom";
 
 
 
-function DepartmentList({departments}){
+
+function DepartmentList({departments, showDetails, setShowDetails}){
 
 
     return(
@@ -19,7 +21,10 @@ function DepartmentList({departments}){
         </tr>
       </thead>
       <tbody>{departments.map(department => 
-        <tr key={department.id}>
+        // <tr key={department.id} >
+        <tr key={department.id} onClick={() => setShowDetails(!showDetails)}> 
+
+
           <td><Link to={`/departments/${department.id}`}>{department.id}</Link></td>
           <td><Link to={`/departments/${department.id}`}>{department.specification}</Link></td>
           <td><Link to={`/departments/${department.id}`}>{department.requirements}</Link></td>

@@ -7,7 +7,7 @@ import Table from 'react-bootstrap/Table';
 function DepartmentDetails({departments}){
 
     const params = useParams();
-    console.log(params)
+    // console.log(params)
     return(
         <div>
             <h4>{departments[params.departmentId -1].specification} Department Supervisors</h4>

@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 
 
 
-function SupervisorList({supervisors}){
+function SupervisorList({supervisors, showDetails, setShowDetails}){
 
 
     return(
@@ -20,7 +20,7 @@ function SupervisorList({supervisors}){
         </tr>
       </thead>
       <tbody>{supervisors.map(supervisor => 
-        <tr key={supervisor.id}>
+        <tr key={supervisor.id} onClick={() => setShowDetails(!showDetails)}>
           <td><Link to={`/supervisors/${supervisor.id}`}>{supervisor.id}</Link></td>
           <td><Link to={`/supervisors/${supervisor.id}`}>{supervisor.name}</Link></td>
           <td><Link to={`/supervisors/${supervisor.id}`}>{supervisor.email}</Link></td>

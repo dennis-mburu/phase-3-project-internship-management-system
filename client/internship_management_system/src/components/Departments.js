@@ -4,39 +4,37 @@ import { Route, useRouteMatch } from "react-router-dom";
 import DepartmentDetails from "./DepartmentDetails";
 import DepartmentList from "./DepartmentList";
 
+function Departments() {
+  const [departments, setDepartments] = useState([]);
+  const [showDetails, setShowDetails] = useState(false);
+  const match = useRouteMatch();
+  console.log(match);
 
-function Departments(){
+  useEffect(() => {
+    fetch("http://localhost:9292/departments")
+      // fetch("https://powerful-headland-71485.herokuapp.com/departments")
 
-    const[departments, setDepartments] = useState([]);
-    const [showDetails, setShowDetails] = useState(false)
-    const match = useRouteMatch();
-    console.log(match);
+      .then((res) => res.json())
+      .then((data) => {
+        setDepartments(data);
+      });
+  }, []);
 
-    useEffect(() => {
-    
-        fetch("http://localhost:9292/departments")
-        // fetch("https://powerful-headland-71485.herokuapp.com/departments")
+  return (
+    <div>
+      <DepartmentList
+        departments={departments}
+        showDetails={showDetails}
+        setShowDetails={setShowDetails}
+      />
+      {/* <Route path={`${match.url}/:departmentId`}> */}
+      <Route path="/departments/:departmentId">
+        {showDetails ? <DepartmentDetails departments={departments} /> : null}
 
-    
-        .then(res => res.json())
-        .then(data => {
-          setDepartments(data)
-        })
-      },[])
-
-
-    return(
-        <div>
-            <DepartmentList departments={departments} showDetails={showDetails} setShowDetails={setShowDetails} />
-            {/* <Route path={`${match.url}/:departmentId`}> */}
-            <Route path='/departments/:departmentId'>
-                {showDetails ? <DepartmentDetails departments={departments}/> : null}
-
-                {/* <DepartmentDetails departments={departments}/> */}
-            </Route>
-        </div>
-    )
+        {/* <DepartmentDetails departments={departments}/> */}
+      </Route>
+    </div>
+  );
 }
-
 
 export default Departments;

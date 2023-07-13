@@ -1,6 +1,6 @@
 #home {
   background-color: aliceblue;
-  }
+}
 
 * {
   box-sizing: border-box;
@@ -34,7 +34,8 @@
 }
 
 @media screen and (max-width: 600px) {
-  .column.side, .column.middle {
+  .column.side,
+  .column.middle {
     width: 100%;
   }
 }
@@ -49,7 +50,7 @@
 }
 
 .hero-image {
-  background: url(./images/cyberman.jpg) no-repeat center; 
+  background: url(./images/cyberman.jpg) no-repeat center;
   background-size: cover;
   /* height: 500px; */
   height: 100vh;
@@ -65,5 +66,3 @@
   transform: translate(-50%, -50%);
   color: white;
 }
-
-  
